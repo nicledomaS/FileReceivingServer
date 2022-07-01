@@ -1,0 +1,17 @@
+uint32 seq_number // packet number
+uint32 seq_total // all packet numbers
+uint8 type // type packet: 0 == ACK, 1 == PUT
+byte id[8] // 8 байт - file id
+byte data[data_size] // after the header and up to the end of the UDP packet there is data
+
+The maximum size of a UDP packet is 1472 bytes.
+
+PUT: the type is set when sending data from the client to the server
+seq_number is set equal to the number of the current packet being sent
+seq_total is set equal to the required number of packets
+
+ACK: the type is set when the receipt is confirmed
+seq_number is set to the number of the received packet
+seq_total is set to the total number of received packets
+
+If the server considers that the file is completed, then it sends the last ACK packet, and writes the calculated checksum to the data section
