@@ -1,10 +1,18 @@
-#include <chrono>
-#include <thread>
 #include <iostream>
+
+#include "FileReceivingServer.h"
 
 int main (int argc, char** argv)
 {
-    std::cout << "Start program" << std::endl;
+    try
+    {
+        auto app = std::make_unique<FileReceivingServer>();
+        app->run();
+    }
+    catch(const std::exception& ex)
+    {
+        std::cout << "Exception: " << ex.what() << std::endl;
+    }
 
     return 0;
 }
