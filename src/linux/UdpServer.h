@@ -2,8 +2,6 @@
 
 #include "../Server.h"
 
-#include <array>
-
 class UdpServer : public Server
 {
 public:
@@ -13,5 +11,4 @@ public:
 
 private:
     int m_socketFd;
-    std::array<unsigned char, MaxPacketSize> m_buffer;
 };

@@ -8,6 +8,10 @@ A UDP server that can receive data, write it to RAM and calculate a checksum fro
 
 `cmake --build build/ -j4`
 
+## Use app
+1) Run server `./FileReceivingServer`
+2) Run client `python3 ./client.py -f /home/pi/Kianu.mp4`
+
 ## Run tests
 `cd build`
 
