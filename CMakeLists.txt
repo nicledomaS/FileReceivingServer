@@ -5,9 +5,13 @@ project(FileReceivingServer)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+set(SRC "src/")
+
 if(WIN32)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+    set(SRC "${SRC};src/windows/")
+    include_directories(src/windows/)
 endif()
 
 if(NOT make_initialize)
@@ -16,10 +20,11 @@ endif()
 
 if(UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall")
+    set(SRC "${SRC};src/linux/")
+    include_directories(src/linux/)
 endif()
 
-executable(${PROJECT_NAME}
-            SOURCES "src/")
+executable(${PROJECT_NAME} SOURCES ${SRC})
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 

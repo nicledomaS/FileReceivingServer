@@ -1,6 +1,6 @@
 #include "UdpServer.h"
 
-UdpServer::UdpServer()
+UdpServer::UdpServer(unsigned short port)
 {
 }
 
