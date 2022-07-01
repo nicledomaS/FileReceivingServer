@@ -10,7 +10,7 @@ class RequestHandler;
 class FileReceivingServer : public Application
 {
 public:
-    FileReceivingServer();
+    explicit FileReceivingServer(unsigned short port);
     ~FileReceivingServer() override;
     void run() override;
 

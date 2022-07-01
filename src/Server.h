@@ -2,6 +2,8 @@
 
 #include <memory>
 
+constexpr auto MaxPacketSize = 1472;
+
 class Request;
 class Response;
 
