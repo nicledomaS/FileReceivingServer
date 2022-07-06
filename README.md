@@ -4,6 +4,10 @@
 A UDP server that can receive data, write it to RAM and calculate a checksum from it
 
 ## Build project
+`git clone https://github.com/nicledomaS/FileReceivingServer.git`
+
+`git submodule update --init --recursive`
+
 `cmake -B build -DCMAKE_BUILD_TYPE=Debug -DFIND_TESTS=ON -DENABLE_TIDY=ON`
 
 `cmake --build build/ -j4`
